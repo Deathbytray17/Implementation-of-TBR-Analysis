@@ -130,7 +130,7 @@ class DebugDependencyInterpreter(Interpreter):
         self.operation_map = {}         # Map variable to operation type
         self.context_stack = []         # Tracks current control context
         self.global_index = 0           # Monotonic counter for instruction order
-        self.debug = True               # Enable debug printing
+        self.debug = False               # Enable debug printing
 
         # Control flow tracking
         self.branch_info = []
@@ -514,16 +514,16 @@ def run_pipeline(code, independent_vars, dependent_vars):
 
         # Format and return results
         return (
-            f"Instructions: {instructions}\n"
-            f"Dependencies: {dependencies}\n"
-            f"Overwritten Dependencies: {overwritten_deps}\n"
-            f"Varied Variables: {varied}\n"
-            f"Useful Variables: {useful}\n"
-            f"Active Variables: {active}\n"
-            f"AdjU Variables: {adjU}\n"
-            f"Required Variables: {required}\n"
-            f"Variable PUSHes: {variable_pushes}\n"
-            f"Control PUSHes: {control_pushes}\n"
+            f"Instructions: {instructions}\n\n"
+            f"Dependencies: {dependencies}\n\n"
+            f"Overwritten Dependencies: {overwritten_deps}\n\n"
+            f"Varied Variables: {varied}\n\n"
+            f"Useful Variables: {useful}\n\n"
+            f"Active Variables: {active}\n\n"
+            f"AdjU Variables: {adjU}\n\n"
+            f"Required Variables: {required}\n\n"
+            f"Variable PUSHes: {variable_pushes}\n\n"
+            f"Control PUSHes: {control_pushes}\n\n"
         )
     except Exception as e:
         # Catch and display exceptions
